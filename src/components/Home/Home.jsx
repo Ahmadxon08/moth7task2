@@ -43,9 +43,11 @@ const Home = () => {
   const filteredStudents = students.filter((student) => {
     const isInGroup = filterGroup === "All" || student.group === filterGroup;
     const matchedStudent =
-      student.firstName.toLowerCase().includes(searchTerm) ||
-      student.lastName.toLowerCase().includes(searchTerm) ||
-      student.group.toLowerCase().includes(searchTerm);
+      (student.firstName &&
+        student.firstName.toLowerCase().includes(searchTerm)) ||
+      (student.lastName &&
+        student.lastName.toLowerCase().includes(searchTerm)) ||
+      (student.group && student.group.toLowerCase().includes(searchTerm));
     return isInGroup && matchedStudent;
   });
 
@@ -54,7 +56,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className={`home "dark_mode" : ""}`}>
+    <div className="home">
       <div className="container">
         <div className="home_head">
           <span>Student info</span>
