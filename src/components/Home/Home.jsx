@@ -3,6 +3,9 @@ import "./Home.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Students from "./Students";
+
+import styled from "styled-components";
+
 // import { useDarkMode } from "./DarkMode";
 
 const Home = () => {
@@ -55,11 +58,32 @@ const Home = () => {
     fetchStudent();
   }, []);
 
+  ///////////////////////////////////////////////////
+
+  const StyledA = styled.a`
+    padding: 10px 22px;
+    font-size: 24px;
+    background-color: rgb(7, 91, 17);
+    font-family: Roboto;
+    font-weight: 700;
+    border-radius: 16px;
+
+    color: rgb(227, 232, 233);
+    margin-left: 20px;
+  `;
+ const StyledSpan = styled.span`
+  font-size: 22px;
+  font-family: Roboto;
+  font-weight: 700;
+  color: #000000;
+  width: 20%;
+`;
+
   return (
     <div className="home">
       <div className="container">
         <div className="home_head">
-          <span>Student info</span>
+          <StyledSpan>Student info</StyledSpan>
           <div className="texts_act">
             <input
               type="search"
@@ -75,7 +99,9 @@ const Home = () => {
             </select>
           </div>
           <div className="btn">
-            <Link to="/addstudent">Add Student</Link>
+            <Link to="/add">
+              <StyledA>Add +</StyledA>
+            </Link>
           </div>
           {/* <div className="btnMode">
             <button onClick={toggleDarkMode}>Toggle Dark Mode</button>
