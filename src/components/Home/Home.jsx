@@ -71,14 +71,39 @@ const Home = () => {
     color: rgb(227, 232, 233);
     margin-left: 20px;
   `;
- const StyledSpan = styled.span`
-  font-size: 22px;
-  font-family: Roboto;
-  font-weight: 700;
-  color: #000000;
-  width: 20%;
-`;
+  const StyledSpan = styled.span`
+    font-size: 22px;
+    font-family: Roboto;
+    font-weight: 700;
+    color: #000000;
+    width: 20%;
+  `;
 
+  // const StyledInput = styled.`
+  //   width: 200px;
+  //   outline: none;
+  //   padding: 10px;
+  //   height: 50px;
+  //   font-size: 22px;
+  //   font-family: Roboto;
+  //   font-weight: 400;
+  //   color: #615252;
+  //   border: 1px solid #00000044;
+  // `;
+  const StyledSpan1 = styled.span`
+    font-size: 22px;
+    font-family: Roboto;
+    font-weight: 700;
+    color: #000000;
+    width: 20%;
+  `;
+  const StyledSpan2 = styled.span`
+    font-size: 22px;
+    font-family: Roboto;
+    font-weight: 700;
+    color: #000000;
+    width: 19%;
+  `;
   return (
     <div className="home">
       <div className="container">
@@ -109,12 +134,12 @@ const Home = () => {
         </div>
         <div className="home_body">
           <div className="body_head">
-            <span>Students ({filteredStudents.length})</span>
-            <span>FirstName</span>
-            <span>LastName</span>
-            <span>Age</span>
-            <span>Group</span>
-            <span>Action</span>
+            <StyledSpan2>Students ({filteredStudents.length})</StyledSpan2>
+            <StyledSpan1>FirstName</StyledSpan1>
+            <StyledSpan1>LastName</StyledSpan1>
+            <StyledSpan1>Age</StyledSpan1>
+            <StyledSpan1>Group</StyledSpan1>
+            <StyledSpan1>Action</StyledSpan1>
           </div>
           <div className="body_data">
             <Students
