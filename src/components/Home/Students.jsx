@@ -2,7 +2,8 @@
 import { Link } from "react-router-dom";
 
 const Students = (props) => {
-  const { students, showModal, setShowModal, deleteStudent, setSelectedId } = props;
+  const { students, showModal, setShowModal, deleteStudent, setSelectedId } =
+    props;
 
   const handleDeleteStudent = (id) => {
     setSelectedId(id); // Silinecek öğrenci kimliğini ayarla
@@ -21,8 +22,16 @@ const Students = (props) => {
               <span>{student.age}</span>
               <span>{student.group}</span>
               <span className="btn0">
-                <Link  className="btn11" to={`/editstudent/${student.id}`}>Edit</Link>
-                <button className="btn22" onClick={() => handleDeleteStudent(student.id)}>Delete</button>
+                <Link className="btn11" to={`/edit/${student.id}`}>
+                  Edit
+                </Link>
+
+                <button
+                  className="btn22"
+                  onClick={() => handleDeleteStudent(student.id)}
+                >
+                  Delete
+                </button>
               </span>
             </div>
           ))}
@@ -34,8 +43,12 @@ const Students = (props) => {
             <h1>Delete Student</h1>
             <p>Are you sure you want to delete this student?</p>
             <div className="modal_btn">
-              <button className="btn1" onClick={() => setShowModal(false)}>Cancel</button>
-              <button className="btn2" onClick={deleteStudent}>Delete</button>
+              <button className="btn1" onClick={() => setShowModal(false)}>
+                Cancel
+              </button>
+              <button className="btn2" onClick={deleteStudent}>
+                Delete
+              </button>
             </div>
           </div>
         </div>
