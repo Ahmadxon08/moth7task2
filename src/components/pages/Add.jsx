@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Add.scss";
 import { useState } from "react";
 import axios from "axios";
 const Add = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -10,10 +11,19 @@ const Add = () => {
     age: "All",
   });
   const postStudent = async () => {
-    try {
-      await axios.post("http://localhost:3000/students", formData);
-    } catch (error) {
-      console.log(error.message, "hatolik bor");
+    if (
+      formData.firstName.length > 3 &&
+      formData.lastName.length > 0 &&
+      formData.age.length <= 2
+    ) {
+      try {
+        await axios.post("http://localhost:3000/students", formData);
+      } catch (error) {
+        console.log(error.message, "hatolik bor");
+      }
+      navigate("/");
+    } else if (formData) {
+      alert("Please field your information before 😜😜😜");
     }
   };
 
@@ -41,6 +51,7 @@ const Add = () => {
                 value={formData.firstName}
                 onChange={handleChange}
                 name="firstName"
+                required
               />
             </div>
             <div className="info">
@@ -50,6 +61,7 @@ const Add = () => {
                 value={formData.lastName}
                 onChange={handleChange}
                 name="lastName"
+                required
               />
             </div>
             <div className="info">
@@ -59,6 +71,7 @@ const Add = () => {
                 value={formData.age}
                 onChange={handleChange}
                 name="age"
+                required
               />
             </div>
             <div className="info">
@@ -67,7 +80,8 @@ const Add = () => {
                 name="group"
                 value={formData.group}
                 onChange={handleChange}
-                id=""
+                id="group"
+                required={formData.group}
               >
                 <option value="All">All</option>
                 <option value="N45">N45</option>
@@ -77,9 +91,7 @@ const Add = () => {
             </div>
           </div>
           <div className="btn">
-            <Link onClick={postStudent} to="/">
-              Add Student
-            </Link>
+            <Link onClick={postStudent}>Add Student</Link>
           </div>
         </div>
       </div>

@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Students from "./Students";
 
-import styled from "styled-components";
-
 // import { useDarkMode } from "./DarkMode";
 
 const Home = () => {
@@ -15,7 +13,7 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterGroup, setFilterGroup] = useState("All");
   // const [darkMode, toggleDarkMode] = useDarkMode();
-
+  
   const fetchStudent = async () => {
     try {
       const res = await axios.get("http://localhost:3000/students");
@@ -60,55 +58,11 @@ const Home = () => {
 
   ///////////////////////////////////////////////////
 
-  const StyledA = styled.a`
-    padding: 10px 22px;
-    font-size: 24px;
-    background-color: rgb(7, 91, 17);
-    font-family: Roboto;
-    font-weight: 700;
-    border-radius: 16px;
-
-    color: rgb(227, 232, 233);
-    margin-left: 20px;
-  `;
-  const StyledSpan = styled.span`
-    font-size: 22px;
-    font-family: Roboto;
-    font-weight: 700;
-    color: #000000;
-    width: 20%;
-  `;
-
-  // const StyledInput = styled.`
-  //   width: 200px;
-  //   outline: none;
-  //   padding: 10px;
-  //   height: 50px;
-  //   font-size: 22px;
-  //   font-family: Roboto;
-  //   font-weight: 400;
-  //   color: #615252;
-  //   border: 1px solid #00000044;
-  // `;
-  const StyledSpan1 = styled.span`
-    font-size: 22px;
-    font-family: Roboto;
-    font-weight: 700;
-    color: #000000;
-    width: 20%;
-  `;
-  const StyledSpan2 = styled.span`
-    font-size: 22px;
-    font-family: Roboto;
-    font-weight: 700;
-    color: #000000;
-    width: 19%;
-  `;
   return (
     <div className="home">
       <div className="container">
         <div className="home_head">
-          <StyledSpan>Student info</StyledSpan>
+          <span>Student info</span>
           <div className="texts_act">
             <input
               type="search"
@@ -125,7 +79,7 @@ const Home = () => {
           </div>
           <div className="btn">
             <Link to="/add">
-              <StyledA>Add +</StyledA>
+              <span>Add +</span>
             </Link>
           </div>
           {/* <div className="btnMode">
@@ -134,12 +88,12 @@ const Home = () => {
         </div>
         <div className="home_body">
           <div className="body_head">
-            <StyledSpan2>Students ({filteredStudents.length})</StyledSpan2>
-            <StyledSpan1>FirstName</StyledSpan1>
-            <StyledSpan1>LastName</StyledSpan1>
-            <StyledSpan1>Age</StyledSpan1>
-            <StyledSpan1>Group</StyledSpan1>
-            <StyledSpan1>Action</StyledSpan1>
+            <span className="id">Students ({filteredStudents.length})</span>
+
+            <span>LastName</span>
+            <span>Age</span>
+            <span>Group</span>
+            <span>Action</span>
           </div>
           <div className="body_data">
             <Students

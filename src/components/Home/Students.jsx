@@ -6,8 +6,8 @@ const Students = (props) => {
     props;
 
   const handleDeleteStudent = (id) => {
-    setSelectedId(id); // Silinecek öğrenci kimliğini ayarla
-    setShowModal(true); // Modalı aç
+    setSelectedId(id);
+    setShowModal(true);
   };
 
   return (
