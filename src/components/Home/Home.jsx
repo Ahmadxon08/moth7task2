@@ -12,8 +12,20 @@ const Home = () => {
   const [selectedId, setSelectedId] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterGroup, setFilterGroup] = useState("All");
-  // const [darkMode, toggleDarkMode] = useDarkMode();
-  
+  // const [cuurentPage, setCurentPage] = useState(1);
+  // const [totalPages, setTotalPages] = useState(1);
+
+  // useEffect(()=>{
+  //   const fetchUsers=async()=>{
+  //     const data=await fetchData(cuurentPage, 10);
+  //     if(data){
+  //       setStudents(data.students);
+  //       setTotalPages(data.totalPages);
+  //     }
+  //   }
+  //   fetchUsers();
+  // }, [currentPage])
+
   const fetchStudent = async () => {
     try {
       const res = await axios.get("http://localhost:3000/students");
@@ -89,7 +101,7 @@ const Home = () => {
         <div className="home_body">
           <div className="body_head">
             <span className="id">Students ({filteredStudents.length})</span>
-
+            <span>FirstName</span>
             <span>LastName</span>
             <span>Age</span>
             <span>Group</span>
